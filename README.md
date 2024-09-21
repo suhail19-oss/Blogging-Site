@@ -1,4 +1,4 @@
-Blogging Site to shre your thoughts.
+Blogging Site to share your thoughts.
 
 
 
