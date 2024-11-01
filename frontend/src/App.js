@@ -1,4 +1,3 @@
-// App.js
 import './App.css';
 import Post from "./post";
 import Header from "./Header";

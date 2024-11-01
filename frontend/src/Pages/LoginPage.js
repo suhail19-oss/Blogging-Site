@@ -37,15 +37,12 @@ export default function LoginPage() {
     }
   }
 
-  
   if (redirect) {
     return <Navigate to="/" />;
   }
-
   return (
     <form className="login" onSubmit={login}>
       <h1>Login</h1>
-
       <input
         type="text"
         placeholder="Username"
@@ -60,10 +57,7 @@ export default function LoginPage() {
         onChange={(ev) => setPassword(ev.target.value)}
         required
       />
-
       <button type="submit">Login</button>
-
-      
       {error && <p className="error">{error}</p>}
     </form>
   );

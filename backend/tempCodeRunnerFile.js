@@ -13,9 +13,11 @@ const Post=require('./models/Post');
 const app = express();
 const secret = "asdfghjkl1234@23455789";
 
+
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
+
 
 mongoose
   .connect("mongodb://localhost:27017/mern-blog", {
@@ -24,6 +26,7 @@ mongoose
   })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
+
 
 app.post("/register", async (req, res) => {
   const { username, password } = req.body;
@@ -75,41 +78,21 @@ app.post("/logout", (req, res) => {
   res.clearCookie("token").json({ message: "Logged out successfully" });
 });
 
-app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
-  const { originalname, path } = req.file;
-  const parts = originalname.split('.');
-  const ext = parts[parts.length - 1];
-  const newpath = path + '.' + ext;
-  fs.renameSync(path, newpath);
-
-  const { title, summary, content } = req.body;
-
-  try {
-    const postDoc = await Post.create({
-      title,
-      summary,
-      content,
-      cover: newpath,
-    });
-
-    console.log("New post created:", postDoc); 
-    res.json(postDoc);
-  } catch (error) {
-    console.error("Error creating post:", error);
-    res.status(500).json({ error: "Failed to create post." });
-  }
+app.post('/post',uploadMiddleware.single('file'), async(req,res)=>{
+const {originalname,path}=req.file;
+const parts=originalname.split('.');
+const ext=parts[parts.length-1];
+const newpath=path+'.'+ext;
+fs.renameSync(path,newpath);
+const {title,summary,content}=req.body;
+const postDoc= await Post.create({
+title,
+summary,
+content,
+cover:newpath,
 });
-
-app.get('/post', async (req, res) => {
-  try {
-    const posts = await Post.find();
-    res.json(posts);
-  } catch (error) {
-    console.error("Error fetching posts:", error);
-    res.status(500).json({ error: "Failed to fetch posts." });
-  }
+res.json(postDoc);
 });
-
 
 const PORT = 4000;
 app.listen(PORT, () =>
