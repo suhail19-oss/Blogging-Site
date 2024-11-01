@@ -123,11 +123,20 @@ app.get('/post', async (req, res) => {
   }
 });
 
-app.get('/post/:id',async(req,res)=>{
-  const {id}=req.params;
-  const postDoc=await Post.findById(id).populate("author",["username"]);
-  res.json(postDoc);
-})
+app.get('/post/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const post = await Post.findById(id).populate('author', ['username']);
+    if (!post) {
+      return res.status(404).json({ error: "Post not found" });
+    }
+    res.json(post);
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    res.status(500).json({ error: "Failed to fetch post." });
+  }
+});
+
 
 // Start Server
 const PORT = 4000;

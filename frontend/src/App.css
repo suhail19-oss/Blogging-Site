@@ -44,9 +44,15 @@ header nav {
 
 div.post {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 20px;
   margin-bottom: 30px;
+}
+
+@media screen and (min-width:768px){
+  div.post{
+    grid-template-columns: 0.9fr 1.1fr;
+  }
 }
 
 div.post div.texts h2 {
@@ -129,6 +135,72 @@ button {
 button:hover {
   background-color: #333;
   transform: scale(1.05);
+}
+
+div.post-page div.image {
+  max-height: 100%; 
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+div.post-page div.image img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+div.post-page a{
+  color:#333;
+  text-decoration:underline ;
+}
+
+div.post-page h1{
+  text-align:center;
+  margin: 10px 0 5px;
+}
+
+div.post-page time{
+  color: #aaa;
+  font-size: 0.7rem;
+  font-weight: bold;
+  gap: 10px;
+  text-align: center;
+  display:block;
+}
+
+div.post-page div.author{
+  text-align:center;
+  margin: 10px 20px 20px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+div.post-page div.content p{
+  line-height: 1.6rem;
+}
+
+div.edit-row{
+  text-align: center;
+  margin-bottom:20px;
+}
+
+div.post-page a.edit-btn{
+  background-color: #333;
+  color:#fff;
+  padding:15px;
+  text-decoration: none;
+  display: inline-flex;
+  border-radius:5px;
+  align-items:center;
+  gap:5px;
+}
+
+a svg{
+  height:20px;
 }
 
 @media (max-width: 480px) {
