@@ -9,7 +9,6 @@ const UserSchema = new Schema(
       minlength: [4, "Username must be at least 4 characters long."],
       unique: true,
       trim: true, 
-      lowercase: true, 
     },
     password: {
       type: String,
@@ -21,13 +20,6 @@ const UserSchema = new Schema(
 );
 
 UserSchema.index({ username: 1 }, { unique: true });
-
-UserSchema.pre("save", function (next) {
-  if (this.isModified("username")) {
-    this.username = this.username.toLowerCase();
-  }
-  next();
-});
 
 const UserModel = model("User", UserSchema);
 module.exports = UserModel;

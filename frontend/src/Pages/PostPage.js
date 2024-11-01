@@ -1,9 +1,7 @@
 import { format } from "date-fns";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useContext } from "react";
+import { useEffect, useState, useContext } from "react";
+import { useParams, Link } from "react-router-dom";
 import { UserContext } from "../UserContext";
-import {Link} from 'react-router-dom';
 
 export default function PostPage() {
   const [postInfo, setPostInfo] = useState(null);
@@ -28,21 +26,22 @@ export default function PostPage() {
 
   if (!postInfo) return <div>Loading...</div>;
 
-  const { title, cover, content, createdAt } = postInfo;
+  const { title, cover, content, createdAt, author } = postInfo;
 
   return (
     <div className="post-page">
-      <h1>{postInfo.title}</h1>
+      <h1>{title}</h1>
       <time>{format(new Date(createdAt), "MMM d, yyyy HH:mm")}</time>
-      <div className="author">By {postInfo.author.username}</div>
+      <div className="author">By {author.username}</div>
 
       <div className="image">
-        <img src={`http://localhost:4000/${cover}`} alt="" />
+        <img src={`http://localhost:4000/${cover}`} alt={title} />
       </div>
       <div className="content" dangerouslySetInnerHTML={{ __html: content }} />
-      {userInfo.id === postInfo.author._id && (
+
+      {userInfo.id === author._id && (
         <div className="edit-row">
-          <Link className="edit-btn" to={'/edit/${postInfo._id}'}>
+          <Link className="edit-btn" to={`/edit/${postInfo._id}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

@@ -9,6 +9,10 @@ body {
   box-sizing: inherit;
 }
 
+a{
+  cursor:pointer;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -135,6 +139,25 @@ button {
 button:hover {
   background-color: #333;
   transform: scale(1.05);
+}
+
+.texts h2 {
+  padding-bottom:3px;
+  margin: 0 0 5px;
+}
+
+.texts .info {
+  margin: 0;
+  color: #aaa;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: flex;
+  gap: 5px;
+}
+
+.texts .info a.author {
+  color: #333;
+  margin-right: 5px;
 }
 
 div.post-page div.image {
