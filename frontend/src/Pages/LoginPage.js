@@ -9,7 +9,6 @@ export default function LoginPage() {
   const [error, setError] = useState(null);
   const { setUserInfo } = useContext(UserContext);
 
-  
   async function login(ev) {
     ev.preventDefault();
 
@@ -17,7 +16,7 @@ export default function LoginPage() {
       const response = await fetch("http://localhost:4000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username: username.toLowerCase(), password }),
         credentials: "include",
       });
 
@@ -26,9 +25,9 @@ export default function LoginPage() {
         console.error("Login failed:", errorData.error);
         setError(errorData.error);
       } else {
-        const userInfo = await response.json(); 
-        setUserInfo(userInfo); 
-        alert("Login Successfull!");
+        const userInfo = await response.json();
+        setUserInfo(userInfo);
+        alert("Login Successful!");
         setRedirect(true);
       }
     } catch (err) {
@@ -45,9 +44,11 @@ export default function LoginPage() {
       <h1>Login</h1>
       <input
         type="text"
-        placeholder="Username"
+        placeholder="Username (lowercase letters and numbers only)"
         value={username}
-        onChange={(ev) => setUsername(ev.target.value)}
+        onChange={(ev) => setUsername(ev.target.value.toLowerCase())}
+        pattern="[a-z0-9]*"
+        title="Username must be lowercase letters and numbers only."
         required
       />
       <input

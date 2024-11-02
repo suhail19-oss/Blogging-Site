@@ -9,7 +9,6 @@ export default function RegisterPage() {
   async function register(ev) {
     ev.preventDefault();
 
-    
     if (username.trim().length < 4) {
       return setError("Username must be at least 4 characters long.");
     }
@@ -25,7 +24,7 @@ export default function RegisterPage() {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          username: username.toLowerCase().trim(),
+          username: username.trim(),
           password,
         }),
       });
@@ -55,15 +54,19 @@ export default function RegisterPage() {
 
       <input
         type="text"
-        placeholder="Username"
+        placeholder="Username (lowercase letters and numbers only)"
         value={username}
-        onChange={(ev) => setUsername(ev.target.value)}
+        onChange={(ev) => setUsername(ev.target.value.toLowerCase())}
+        pattern="[a-z0-9]*"
+        title="Username must be lowercase letters and numbers only."
+        required
       />
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={(ev) => setPassword(ev.target.value)}
+        required
       />
       <button type="submit">Register</button>
     </form>

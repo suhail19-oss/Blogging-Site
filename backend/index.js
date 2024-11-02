@@ -45,7 +45,7 @@ app.post("/register", async (req, res) => {
 // Login Route
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
-  const user = await User.findOne({ username: username});
+  const user = await User.findOne({ username: username.toLowerCase() });
 
   if (!user || !bcrypt.compareSync(password, user.password)) {
     return res.status(400).json({ error: "Invalid username or password." });
