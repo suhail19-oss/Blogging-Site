@@ -36,10 +36,5 @@ This blogging site offers a seamless experience for users to create, edit, and r
 
 - View Other Posts: Explore and engage with posts created by others.
 
-## Screenshots
-
-![Register] (project%20images/Screenshot%202024-11-02%20154553.png)
-
-
 
 
