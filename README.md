@@ -39,7 +39,7 @@ This blogging site offers a seamless experience for users to create, edit, and r
 
 ## Screenshots
 
-![Register](project images/Screenshot 2024-11-02 154553.png)
+![Register] (project images/Screenshot 2024-11-02 154553.png)
 
 
 
