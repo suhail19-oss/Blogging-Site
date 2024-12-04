@@ -38,3 +38,10 @@ This blogging site offers a seamless experience for users to create, edit, and r
 
 
 
+
+## Screenshots
+
+![Register](https://github.com/suhail19-oss/Blogging-Site/blob/main/project%20images/Screenshot%202024-11-02%20154553.png?raw=true) 
+
+
+
