@@ -41,11 +41,11 @@ This blogging site offers a seamless experience for users to create, edit, and r
 
 ## Screenshots
 
-![Register] (https://github.com/suhail19-oss/Blogging-Site/blob/main/project%20images/Screenshot%202024-11-02%20154553.png?raw=true) 
-![Login] (https://github.com/suhail19-oss/Blogging-Site/blob/main/project%20images/Screenshot%202024-11-02%20154607.png?raw=true) 
-![HomePage] (https://github.com/suhail19-oss/Blogging-Site/blob/main/project%20images/Screenshot%202024-11-02%20154640.png?raw=true) 
-![Post] (https://github.com/suhail19-oss/Blogging-Site/blob/main/project%20images/Screenshot%202024-11-02%20155137.png?raw=true) 
-![Edit the Post] (https://github.com/suhail19-oss/Blogging-Site/blob/main/project%20images/Screenshot%202024-11-02%20155150.png?raw=true) 
+![Register](https://github.com/suhail19-oss/Blogging-Site/blob/main/project%20images/Screenshot%202024-11-02%20154553.png?raw=true) 
+![Login](https://github.com/suhail19-oss/Blogging-Site/blob/main/project%20images/Screenshot%202024-11-02%20154607.png?raw=true) 
+![HomePage](https://github.com/suhail19-oss/Blogging-Site/blob/main/project%20images/Screenshot%202024-11-02%20154640.png?raw=true) 
+![Post](https://github.com/suhail19-oss/Blogging-Site/blob/main/project%20images/Screenshot%202024-11-02%20155137.png?raw=true) 
+![Edit the Post](https://github.com/suhail19-oss/Blogging-Site/blob/main/project%20images/Screenshot%202024-11-02%20155150.png?raw=true) 
 
 
 
